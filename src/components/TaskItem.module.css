@@ -1,0 +1,187 @@
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: box-shadow 0.15s, border-color 0.15s;
+  animation: slideIn 0.2s ease;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.item:hover {
+  box-shadow: var(--shadow-md);
+  border-color: #d5d3cc;
+}
+
+.item.completed {
+  opacity: 0.55;
+}
+
+.checkbox {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1.8px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  transition: all 0.15s;
+}
+
+.checkbox:hover {
+  border-color: var(--text-secondary);
+}
+
+.checkbox.checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.5;
+  cursor: default;
+  transition: text-decoration 0.1s;
+}
+
+.completed .title {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.priority {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.priority.high {
+  background: var(--danger-light);
+  color: var(--priority-high);
+}
+
+.priority.medium {
+  background: #fef6ee;
+  color: var(--priority-medium);
+}
+
+.priority.low {
+  background: #f0faf4;
+  color: var(--priority-low);
+}
+
+.date {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.date.overdue {
+  color: var(--danger);
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.15s;
+  flex-shrink: 0;
+}
+
+.item:hover .actions {
+  opacity: 1;
+}
+
+.editBtn,
+.deleteBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+  color: var(--text-muted);
+}
+
+.editBtn:hover {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+.deleteBtn:hover {
+  background: var(--danger-light);
+  color: var(--danger);
+}
+
+.editForm {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.editInput {
+  flex: 1;
+  min-width: 0;
+  height: 34px;
+  padding: 0 10px;
+  border: 1.5px solid var(--border-focus);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  color: var(--text-primary);
+  background: var(--surface);
+}
+
+.saveBtn {
+  height: 30px;
+  padding: 0 14px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.cancelBtn {
+  height: 30px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.cancelBtn:hover {
+  background: var(--surface-hover);
+}

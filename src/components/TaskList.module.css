@@ -1,0 +1,35 @@
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.empty {
+  text-align: center;
+  padding: 56px 24px;
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+.emptyIcon {
+  display: inline-flex;
+  padding: 16px;
+  background: var(--surface-hover);
+  border-radius: 50%;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.emptyHeading {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.emptySub {
+  font-size: 13px;
+  color: var(--text-muted);
+}

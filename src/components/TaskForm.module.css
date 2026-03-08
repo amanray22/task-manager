@@ -1,0 +1,132 @@
+.form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+
+.inputRow {
+  display: flex;
+  gap: 10px;
+}
+
+.input {
+  flex: 1;
+  height: 42px;
+  padding: 0 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-primary);
+  background: var(--bg);
+  transition: border-color 0.15s;
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+.input:focus {
+  border-color: var(--border-focus);
+  background: var(--surface);
+}
+
+.addButton {
+  height: 42px;
+  padding: 0 20px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  transition: opacity 0.15s;
+}
+
+.addButton:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.addButton:not(:disabled):hover {
+  opacity: 0.85;
+}
+
+.options {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.priorityGroup {
+  display: flex;
+  gap: 6px;
+}
+
+.priorityBtn {
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1.5px solid var(--border);
+  color: var(--text-secondary);
+  background: var(--surface);
+  transition: all 0.15s;
+}
+
+.priorityBtn:hover {
+  border-color: var(--text-secondary);
+}
+
+.priorityBtn.active.high {
+  background: var(--danger-light);
+  border-color: var(--priority-high);
+  color: var(--priority-high);
+}
+
+.priorityBtn.active.medium {
+  background: #fef6ee;
+  border-color: var(--priority-medium);
+  color: var(--priority-medium);
+}
+
+.priorityBtn.active.low {
+  background: #f0faf4;
+  border-color: var(--priority-low);
+  color: var(--priority-low);
+}
+
+.dateInput {
+  height: 30px;
+  padding: 0 10px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text-primary);
+  background: var(--bg);
+  transition: border-color 0.15s;
+}
+
+.dateInput:focus {
+  border-color: var(--border-focus);
+}
