@@ -8,10 +8,12 @@ function FilterBar({ filter, onFilterChange, counts }) {
   ]
 
   return (
-    <div className={styles.bar}>
+    <div className={styles.bar} role="tablist" aria-label="Filter tasks">
       {filters.map((f) => (
         <button
           key={f.key}
+          role="tab"
+          aria-selected={filter === f.key}
           className={`${styles.btn} ${filter === f.key ? styles.active : ''}`}
           onClick={() => onFilterChange(f.key)}
         >

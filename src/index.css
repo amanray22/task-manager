@@ -15,12 +15,33 @@
   --priority-high: #c0392b;
   --priority-medium: #e67e22;
   --priority-low: #27ae60;
+  --priority-medium-bg: #fef6ee;
+  --priority-low-bg: #f0faf4;
   --radius: 10px;
   --radius-sm: 6px;
   --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
   --font: 'DM Sans', sans-serif;
   --font-mono: 'DM Mono', monospace;
+}
+
+[data-theme="dark"] {
+  --bg: #111110;
+  --surface: #1c1c1a;
+  --surface-hover: #262624;
+  --border: #2e2e2b;
+  --border-focus: #e8e6e1;
+  --text-primary: #e8e6e1;
+  --text-secondary: #9c9990;
+  --text-muted: #6b6861;
+  --accent: #e8e6e1;
+  --accent-light: #262624;
+  --danger: #e74c3c;
+  --danger-light: #2a1a18;
+  --priority-medium-bg: #2a2218;
+  --priority-low-bg: #152019;
+  --shadow: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
 }
 
 *, *::before, *::after {
@@ -35,6 +56,7 @@ body {
   color: var(--text-primary);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 button {
@@ -50,4 +72,8 @@ input, textarea, select {
 
 input:focus, textarea:focus, select:focus {
   outline: none;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
 }

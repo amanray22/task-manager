@@ -1,8 +1,17 @@
 import TaskItem from './TaskItem'
 import styles from './TaskList.module.css'
 
-function TaskList({ tasks, onToggle, onDelete, onEdit, filter }) {
+function TaskList({ tasks, onToggle, onDelete, onEdit, filter, searchQuery }) {
   if (tasks.length === 0) {
+    if (searchQuery?.trim()) {
+      return (
+        <div className={styles.empty}>
+          <p className={styles.emptyHeading}>No matching tasks</p>
+          <p className={styles.emptySub}>Try a different search term.</p>
+        </div>
+      )
+    }
+
     const messages = {
       all: { heading: 'No tasks yet', sub: 'Add a task above to get started.' },
       active: { heading: 'All caught up!', sub: 'No active tasks remaining.' },
@@ -13,7 +22,7 @@ function TaskList({ tasks, onToggle, onDelete, onEdit, filter }) {
     return (
       <div className={styles.empty}>
         <div className={styles.emptyIcon}>
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M9 11l3 3L22 4" />
             <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
           </svg>

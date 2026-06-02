@@ -17,34 +17,52 @@
 
 .item:hover {
   box-shadow: var(--shadow-md);
-  border-color: #d5d3cc;
+  border-color: var(--text-muted);
 }
 
 .item.completed {
   opacity: 0.55;
 }
 
-.checkbox {
+.checkboxLabel {
   flex-shrink: 0;
+  position: relative;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.checkmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 20px;
   height: 20px;
   border-radius: 5px;
   border: 1.8px solid var(--border);
   background: var(--surface);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2px;
   transition: all 0.15s;
 }
 
-.checkbox:hover {
+.checkboxLabel:hover .checkmark {
   border-color: var(--text-secondary);
 }
 
-.checkbox.checked {
+.checkbox:checked + .checkmark {
   background: var(--accent);
   border-color: var(--accent);
+}
+
+.checkbox:focus-visible + .checkmark {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
 }
 
 .content {
@@ -91,12 +109,12 @@
 }
 
 .priority.medium {
-  background: #fef6ee;
+  background: var(--priority-medium-bg);
   color: var(--priority-medium);
 }
 
 .priority.low {
-  background: #f0faf4;
+  background: var(--priority-low-bg);
   color: var(--priority-low);
 }
 
@@ -118,7 +136,8 @@
   flex-shrink: 0;
 }
 
-.item:hover .actions {
+.item:hover .actions,
+.item:focus-within .actions {
   opacity: 1;
 }
 
@@ -146,14 +165,12 @@
 
 .editForm {
   display: flex;
-  gap: 8px;
-  align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .editInput {
-  flex: 1;
-  min-width: 0;
+  width: 100%;
   height: 34px;
   padding: 0 10px;
   border: 1.5px solid var(--border-focus);
@@ -163,11 +180,33 @@
   background: var(--surface);
 }
 
+.editOptions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.editDate {
+  height: 30px;
+  padding: 0 10px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--text-primary);
+  background: var(--bg);
+}
+
+.editActions {
+  display: flex;
+  gap: 8px;
+}
+
 .saveBtn {
   height: 30px;
   padding: 0 14px;
   background: var(--accent);
-  color: #fff;
+  color: var(--bg);
   border-radius: var(--radius-sm);
   font-size: 13px;
   font-weight: 500;
