@@ -38,7 +38,7 @@
   height: 42px;
   padding: 0 20px;
   background: var(--accent);
-  color: #fff;
+  color: var(--bg);
   border-radius: var(--radius-sm);
   font-size: 14px;
   font-weight: 500;
@@ -75,45 +75,6 @@
   color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-}
-
-.priorityGroup {
-  display: flex;
-  gap: 6px;
-}
-
-.priorityBtn {
-  height: 30px;
-  padding: 0 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 500;
-  border: 1.5px solid var(--border);
-  color: var(--text-secondary);
-  background: var(--surface);
-  transition: all 0.15s;
-}
-
-.priorityBtn:hover {
-  border-color: var(--text-secondary);
-}
-
-.priorityBtn.active.high {
-  background: var(--danger-light);
-  border-color: var(--priority-high);
-  color: var(--priority-high);
-}
-
-.priorityBtn.active.medium {
-  background: #fef6ee;
-  border-color: var(--priority-medium);
-  color: var(--priority-medium);
-}
-
-.priorityBtn.active.low {
-  background: #f0faf4;
-  border-color: var(--priority-low);
-  color: var(--priority-low);
 }
 
 .dateInput {

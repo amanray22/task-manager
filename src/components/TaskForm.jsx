@@ -1,11 +1,23 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import PriorityPicker from './PriorityPicker'
 import styles from './TaskForm.module.css'
 
-function TaskForm({ onAddTask }) {
+function TaskForm({ onAddTask, inputRef }) {
   const [title, setTitle] = useState('')
   const [priority, setPriority] = useState('medium')
   const [dueDate, setDueDate] = useState('')
   const [expanded, setExpanded] = useState(false)
+  const formRef = useRef(null)
+
+  useEffect(() => {
+    function handlePointerDown(e) {
+      if (formRef.current && !formRef.current.contains(e.target)) {
+        setExpanded(false)
+      }
+    }
+    document.addEventListener('mousedown', handlePointerDown)
+    return () => document.removeEventListener('mousedown', handlePointerDown)
+  }, [])
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -20,15 +32,17 @@ function TaskForm({ onAddTask }) {
   }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form ref={formRef} className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.inputRow}>
         <input
+          ref={inputRef}
           className={styles.input}
           type="text"
-          placeholder="Add a new task..."
+          placeholder="Add a new task… (press N)"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           onFocus={() => setExpanded(true)}
+          aria-label="New task title"
         />
         <button type="submit" className={styles.addButton} disabled={!title.trim()}>
           Add
@@ -38,19 +52,8 @@ function TaskForm({ onAddTask }) {
       {expanded && (
         <div className={styles.options}>
           <div className={styles.field}>
-            <label className={styles.label}>Priority</label>
-            <div className={styles.priorityGroup}>
-              {['high', 'medium', 'low'].map((p) => (
-                <button
-                  key={p}
-                  type="button"
-                  className={`${styles.priorityBtn} ${styles[p]} ${priority === p ? styles.active : ''}`}
-                  onClick={() => setPriority(p)}
-                >
-                  {p.charAt(0).toUpperCase() + p.slice(1)}
-                </button>
-              ))}
-            </div>
+            <span className={styles.label}>Priority</span>
+            <PriorityPicker value={priority} onChange={setPriority} idPrefix="new-priority" />
           </div>
 
           <div className={styles.field}>
